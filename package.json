@@ -1,0 +1,34 @@
+{
+  "name": "cronlet",
+  "version": "0.1.0",
+  "description": "Parse cron expressions and find out when they actually fire.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "cronlet": "src/cli.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/cli.js"
+  },
+  "keywords": [
+    "cron",
+    "crontab",
+    "schedule",
+    "parser",
+    "utc",
+    "cli"
+  ]
+}

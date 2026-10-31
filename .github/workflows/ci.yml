@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["18", "20", "22"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Test
+        run: node --test
+      - name: Smoke test the CLI
+        run: node src/cli.js "*/15 * * * *" -n 2 --from 2026-01-01T00:00:00Z
+      - name: Reject a bad expression
+        run: |
+          set +e
+          node src/cli.js "nope"
+          test $? -eq 2

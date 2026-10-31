@@ -1,0 +1,17 @@
+# Dependencies (there are none, but npm likes to make this directory)
+node_modules/
+
+# Test and coverage output
+coverage/
+.nyc_output/
+*.lcov
+
+# Editors and OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-error.log*
